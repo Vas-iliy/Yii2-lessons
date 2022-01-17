@@ -2,3 +2,4 @@
 <?=$this->render('inc')?>
 <p><?=$name?></p>
 <p><?=$age?></p>
+<p><?=$this->params['t1']?></p>
