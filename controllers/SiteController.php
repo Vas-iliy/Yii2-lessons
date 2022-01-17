@@ -123,6 +123,6 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
-        return $this->render('/site/about');
+        return $this->render('//site/about');
     }
 }
