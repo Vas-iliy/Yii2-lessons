@@ -4,12 +4,30 @@ use yii\helpers\Html;
 ?>
 <div class="col-md-12">
     <h2>Page Form</h2>
-    <?$form = ActiveForm::begin()?>
-    <?=$form->field($model, 'name')?>
-    <?=$form->field($model, 'email')?>
-    <?=$form->field($model, 'text')->textarea(['rows' => 7])?>
+    <?php $form = ActiveForm::begin([
+        'id' => 'my-form',
+        'enableClientValidation' => false,
+        'options' => [
+            'class' => 'form-horizontal',
+        ],
+        'fieldConfig' => [
+            'template' => "<div class='form-group'> {label} \n {input} \n \n  {error}</div>",
+            'inputOptions' => ['class' => 'form-control'],
+            'errorOptions' => ['class' => 'form-text text-danger']
+        ]
+    ]) ?>
+
+    <?= $form->field($model, 'name')->hint('Заполните поле имя')->textInput(['placeholder' => 'Введите имя']); ?>
+
+    <?= $form->field($model, 'email')->input('email', ['placeholder' => 'Введите Email']) ?>
+
+    <?= $form->field($model, 'text')->textarea(['rows' => 7, 'placeholder' => 'Введите текст']) ?>
+
     <div class="form-group">
-        <?=Html::submitButton('Send', ['class' => 'btn btn-default'])?>
+        <div class="col-md-5 col-md-offset-2">
+            <?= Html::submitButton('Отправить', ['class' => 'btn btn-default btn-block']) ?>
+        </div>
     </div>
-    <?ActiveForm::end()?>
+
+    <?php ActiveForm::end() ?>
 </div>
