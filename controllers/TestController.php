@@ -8,7 +8,15 @@ class TestController extends Controller
 {
     public $defaultAction = 'my-test';
 
-    public function actionIndex() {
+    public function actions()
+    {
+        return [
+          'test' => 'app\components\HiAction'
+        ];
+    }
+
+    public function actionIndex($name) {
+        var_dump($name);
         return 'Hi';
     }
 

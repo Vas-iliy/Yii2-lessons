@@ -11,6 +11,9 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+    /*'controllerMap' => [
+      'test' => 'app\controllers\SiteController'
+    ],*/
     //'defaultRoute' => 'test',
     'components' => [
         'request' => [
@@ -34,6 +37,7 @@ $config = [
             // for the mailer to send real emails.
             'useFileTransport' => true,
         ],
+        
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
