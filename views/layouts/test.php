@@ -1,6 +1,9 @@
 <?php use yii\helpers\Html;
 
-$this->beginPage() ?>
+$this->beginPage();
+
+\app\assets\TestAsset::register($this);
+?>
 <!doctype html>
 <html lang="en">
 <head>
