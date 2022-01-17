@@ -20,7 +20,11 @@ $this->beginPage();
 <body>
 <?php $this->beginBody() ?>
 
-<?=$content?>
+<div class="container">
+    <div class="row">
+        <?=$content?>
+    </div>
+</div>
 
 <?php $this->endBody() ?>
 
