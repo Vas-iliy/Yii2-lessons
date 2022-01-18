@@ -1,4 +1,4 @@
 <h4><?=$category->title?></h4>
-<?foreach ($category->products as $product):?>
+<?foreach ($products as $product):?>
     <p><?=$product->title?> | $<?=$product->price?></p>
 <?endforeach;?>

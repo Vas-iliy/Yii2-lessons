@@ -16,7 +16,8 @@ class CategoryController extends AppController
     public function actionView($id = null)
     {
         $category = Category::findOne($id);
+        $products = $category->getProducts(850)->all();
         $this->view->title = "Category: {$category->title}";
-        return $this->render('view', compact('category'));
+        return $this->render('view', compact('category', 'products'));
     }
 }
