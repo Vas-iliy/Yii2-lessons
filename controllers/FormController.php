@@ -37,6 +37,8 @@ class FormController extends AppController
                 \Yii::$app->session->setFlash('success', 'Данные приняты');
                 return $this->refresh();
             }
+        } else {
+            \Yii::$app->session->setFlash('error', 'Error');
         }
         return $this->render('index', compact('model'));
     }
