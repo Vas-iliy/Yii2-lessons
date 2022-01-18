@@ -48,4 +48,33 @@ class FormController extends AppController
         $countries = Country::find()->orderBy('population DESC')->all();
         return$this->render('view', compact('countries'));
     }
+
+    public function actionCreate() {
+        $this->layout = 'test';
+        $this->view->title = 'Create';
+        $country = new Country();
+
+        /*if (\Yii::$app->request->isAjax) {
+            $country->load(\Yii::$app->request->post());
+            \Yii::$app->response->format = Response::FORMAT_JSON;
+            return ActiveForm::validate($country);
+        }*/
+
+        if ($country->load(\Yii::$app->request->post()) && $country->save()) {
+            \Yii::$app->session->setFlash('success', 'OK');
+            return $this->refresh();
+        }
+        /*$country->code = 'UA';
+        $country->name = 'Ukraine';
+        $country->population = '41840000';
+        $country->status = 1;
+        if ($country->save()) {
+            \Yii::$app->session->setFlash('success', 'OK');
+        } else {
+            \Yii::$app->session->setFlash('error', 'NO');
+        }*/
+
+
+        return$this->render('create', compact('country'));
+    }
 }
