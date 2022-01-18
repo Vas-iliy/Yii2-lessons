@@ -17,7 +17,7 @@ use yii\widgets\Pjax;
     <?endif;?>
     <?php $form = ActiveForm::begin([
         'id' => 'my-form',
-        'enableClientValidation' => false,
+        'enableClientValidation' => true,
         //'action' => '/lessons/web/index.php?r=form',
         'options' => [
             'class' => 'form-horizontal',
@@ -31,11 +31,9 @@ use yii\widgets\Pjax;
     ]) ?>
 
     <?= $form->field($model, 'name')->hint('Заполните поле имя')->textInput(['placeholder' => 'Введите имя']); ?>
-
     <?= $form->field($model, 'email')->input('email', ['placeholder' => 'Введите Email']) ?>
-
+    <?= $form->field($model, 'topic')->input('text', ['placeholder' => 'Тема сообщения']) ?>
     <?= $form->field($model, 'text')->textarea(['rows' => 7, 'placeholder' => 'Введите текст']) ?>
-
     <div class="form-group">
         <div class="col-md-5">
             <?= Html::submitButton('Отправить', ['class' => 'btn btn-default btn-block']) ?>
