@@ -14,7 +14,7 @@ class EntryForm extends Model
     public function rules()
     {
         return [
-          [['name', 'email', 'text', 'topic'], 'required'],
+          [['name', 'email', 'text'], 'required'],
           ['email', 'email'],
             ['topic', 'valid', 'skipOnEmpty' => false]
             /*['topic', 'length' => [3,5] ]*/

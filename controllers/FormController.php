@@ -3,6 +3,8 @@
 namespace app\controllers;
 
 use app\models\EntryForm;
+use yii\web\Response;
+use yii\widgets\ActiveForm;
 
 class FormController extends AppController
 {
@@ -11,7 +13,17 @@ class FormController extends AppController
         $this->layout = 'test';
         $this->view->title = 'Form';
         $model = new EntryForm();
-        if ($model->load(\Yii::$app->request->post()) && $model->validate()) {
+        $model->load(\Yii::$app->request->post());
+        if (\Yii::$app->request->isAjax) {
+            \Yii::$app->response->format = Response::FORMAT_JSON;
+            if ($model->validate()) {
+                return ['message' => 'ok'];
+            } else {
+                return ActiveForm::validate($model);
+            }
+            //return ActiveForm::validate($model);
+        }
+        /*if ($model->load(\Yii::$app->request->post()) && $model->validate()) {
             \Yii::$app->session->setFlash('success', 'Данные приняты');
             return $this->refresh();
             /*if (\Yii::$app->request->isPjax) {
@@ -21,7 +33,7 @@ class FormController extends AppController
                 \Yii::$app->session->setFlash('success', 'Данные приняты');
                 return $this->refresh();
             }*/
-        }
+        //}*/
         return $this->render('index', compact('model'));
     }
 }
