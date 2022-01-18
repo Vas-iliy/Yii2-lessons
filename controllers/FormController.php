@@ -43,7 +43,9 @@ class FormController extends AppController
     public function actionView() {
         $this->layout = 'test';
         $this->view->title = 'Работа с моделями';
-        $model = new Country();
-        return$this->render('view', compact('model'));
+        $country = Country::findOne('BR');
+        $country = Country::find()->where(['code' => 'BR'])->one();
+        $countries = Country::find()->orderBy('population DESC')->all();
+        return$this->render('view', compact('countries'));
     }
 }
