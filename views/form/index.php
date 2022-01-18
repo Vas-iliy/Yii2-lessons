@@ -32,8 +32,8 @@ use yii\widgets\Pjax;
 
     <?= $form->field($model, 'name')->hint('Заполните поле имя')->textInput(['placeholder' => 'Введите имя']); ?>
     <?= $form->field($model, 'email')->input('email', ['placeholder' => 'Введите Email']) ?>
-    <?= $form->field($model, 'topic', ['enableAjaxValidation' => true])->input('text', ['placeholder' => 'Тема сообщения']) ?>
-    <?= $form->field($model, 'text')->textarea(['rows' => 7, 'placeholder' => 'Введите текст']) ?>
+    <?/*= $form->field($model, 'topic', ['enableAjaxValidation' => true])->input('text', ['placeholder' => 'Тема сообщения']) */?><!--
+    --><?= $form->field($model, 'text')->textarea(['rows' => 7, 'placeholder' => 'Введите текст']) ?>
     <div class="form-group">
         <div class="col-md-5">
             <?= Html::submitButton('Отправить', ['class' => 'btn btn-default btn-block']) ?>
@@ -44,7 +44,7 @@ use yii\widgets\Pjax;
     <?Pjax::end()?>
 </div>
 
-<?
+<?/*
 $js = <<<JS
 var form = $('#my-form');
 form.on('beforeSubmit', function() {
@@ -66,4 +66,4 @@ form.on('beforeSubmit', function() {
 JS;
 
 $this->registerJs($js);
-?>
+*/?>

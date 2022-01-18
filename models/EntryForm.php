@@ -16,7 +16,7 @@ class EntryForm extends Model
         return [
           [['name', 'email', 'text'], 'required'],
           ['email', 'email'],
-            ['topic', 'valid', 'skipOnEmpty' => false]
+           // ['topic', 'valid', 'skipOnEmpty' => false]
             /*['topic', 'length' => [3,5] ]*/
             /*['topic', 'string', 'min' => 3],
             ['topic', 'string', 'max' => 5]*/
