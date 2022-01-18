@@ -1,5 +1,5 @@
 <div class="col-md-12">
-    <h2>Create</h2>
+    <h2>Delete</h2>
 
     <? use yii\helpers\Html;
     use yii\widgets\ActiveForm;
@@ -19,26 +19,4 @@
             <?=Yii::$app->session->getFlash('success')?>
         </div>
     <?endif;?>
-
-    <?php $form = ActiveForm::begin([
-        'id' => 'my-form',
-        'options' => [
-            'class' => 'form-horizontal',
-        ],
-        'fieldConfig' => [
-            'template' => "<div class='form-group'> {label} \n {input} \n \n  {error}</div>",
-            'inputOptions' => ['class' => 'form-control'],
-            'errorOptions' => ['class' => 'form-text text-danger']
-        ]
-    ]) ?>
-    <?=$form->field($country, 'code')?>
-    <?=$form->field($country, 'name')?>
-    <?=$form->field($country, 'population')?>
-    <?=$form->field($country, 'status')->checkbox()?>
-    <div class="form-group">
-        <div class="col-md-5">
-            <?= Html::submitButton('Отправить', ['class' => 'btn btn-default btn-block']) ?>
-        </div>
-    </div>
-    <? ActiveForm::end() ?>
 </div>

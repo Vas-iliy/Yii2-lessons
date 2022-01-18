@@ -1,5 +1,5 @@
 <div class="col-md-12">
-    <h2>Create</h2>
+    <h2>Update</h2>
 
     <? use yii\helpers\Html;
     use yii\widgets\ActiveForm;
@@ -31,7 +31,6 @@
             'errorOptions' => ['class' => 'form-text text-danger']
         ]
     ]) ?>
-    <?=$form->field($country, 'code')?>
     <?=$form->field($country, 'name')?>
     <?=$form->field($country, 'population')?>
     <?=$form->field($country, 'status')->checkbox()?>
